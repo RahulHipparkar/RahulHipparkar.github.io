@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,8 @@
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
+    /* ===== Dark Theme (default) ===== */
+    :root, [data-theme="dark"] {
       --bg: #0a0a0f;
       --bg-card: #12121a;
       --bg-card-hover: #1a1a26;
@@ -24,9 +25,37 @@
       --gradient-1: #6366f1;
       --gradient-2: #a855f7;
       --gradient-3: #ec4899;
+      --nav-bg: rgba(10, 10, 15, 0.8);
+      --nav-mobile-bg: rgba(10, 10, 15, 0.95);
+      --shadow-card: rgba(0, 0, 0, 0.3);
+      --skill-tag-bg: rgba(99, 102, 241, 0.08);
+      --skill-tag-border: rgba(99, 102, 241, 0.15);
+      --skill-tag-hover-bg: rgba(99, 102, 241, 0.15);
       --radius: 12px;
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ===== Light Theme ===== */
+    [data-theme="light"] {
+      --bg: #f8f9fc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f3f8;
+      --text: #1a1a2e;
+      --text-muted: #5c5c72;
+      --accent: #4f46e5;
+      --accent-light: #6366f1;
+      --accent-glow: rgba(79, 70, 229, 0.12);
+      --border: #e2e4ec;
+      --gradient-1: #4f46e5;
+      --gradient-2: #9333ea;
+      --gradient-3: #db2777;
+      --nav-bg: rgba(248, 249, 252, 0.85);
+      --nav-mobile-bg: rgba(248, 249, 252, 0.97);
+      --shadow-card: rgba(0, 0, 0, 0.06);
+      --skill-tag-bg: rgba(79, 70, 229, 0.06);
+      --skill-tag-border: rgba(79, 70, 229, 0.12);
+      --skill-tag-hover-bg: rgba(79, 70, 229, 0.12);
     }
 
     html { scroll-behavior: smooth; }
@@ -37,6 +66,7 @@
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     a { color: var(--accent-light); text-decoration: none; transition: color 0.2s; }
@@ -50,10 +80,10 @@
       right: 0;
       z-index: 100;
       padding: 16px 0;
-      background: rgba(10, 10, 15, 0.8);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, background 0.4s ease;
     }
     nav.scrolled { border-bottom-color: var(--border); }
 
@@ -74,7 +104,7 @@
     }
     .nav-logo span { color: var(--accent); }
 
-    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -82,6 +112,75 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: relative;
+      width: 56px;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .theme-toggle-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      transition: all 0.4s cubic-bezier(0.68, -0.15, 0.27, 1.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    [data-theme="light"] .theme-toggle-thumb {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle-icon {
+      width: 12px;
+      height: 12px;
+      color: #fff;
+    }
+
+    /* Sun/Moon icons inside the track */
+    .theme-toggle-icons {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7px;
+      pointer-events: none;
+    }
+    .theme-toggle-icons svg {
+      width: 14px;
+      height: 14px;
+      transition: opacity 0.3s;
+    }
+    .theme-icon-moon { color: #c4b5fd; }
+    .theme-icon-sun { color: #fbbf24; }
+
+    [data-theme="dark"] .theme-icon-sun { opacity: 0.3; }
+    [data-theme="dark"] .theme-icon-moon { opacity: 1; }
+    [data-theme="light"] .theme-icon-sun { opacity: 1; }
+    [data-theme="light"] .theme-icon-moon { opacity: 0.3; }
 
     .hamburger {
       display: none;
@@ -145,7 +244,11 @@
       border-radius: 50%;
       filter: blur(120px);
       opacity: 0.3;
+      transition: opacity 0.4s;
     }
+
+    [data-theme="light"] .hero-bg .orb { opacity: 0.15; }
+
     .hero-bg .orb-1 {
       width: 500px; height: 500px;
       background: var(--gradient-1);
@@ -339,9 +442,9 @@
     }
 
     .skill-tag {
-      background: rgba(99, 102, 241, 0.08);
+      background: var(--skill-tag-bg);
       color: var(--accent-light);
-      border: 1px solid rgba(99, 102, 241, 0.15);
+      border: 1px solid var(--skill-tag-border);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.82rem;
@@ -349,7 +452,7 @@
       transition: all 0.2s;
     }
     .skill-tag:hover {
-      background: rgba(99, 102, 241, 0.15);
+      background: var(--skill-tag-hover-bg);
       border-color: var(--accent);
     }
 
@@ -372,7 +475,7 @@
     .project-card:hover {
       border-color: var(--accent);
       transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 16px 48px var(--shadow-card);
     }
 
     .project-header {
@@ -421,7 +524,7 @@
     }
 
     .project-tech span + span::before {
-      content: "·";
+      content: "\00b7";
       margin-right: 8px;
     }
 
@@ -445,6 +548,7 @@
       border-radius: 50%;
       background: var(--accent);
       border: 2px solid var(--bg);
+      transition: border-color 0.4s;
     }
 
     .timeline-date {
@@ -542,7 +646,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(10, 10, 15, 0.95);
+        background: var(--nav-mobile-bg);
         backdrop-filter: blur(16px);
         padding: 24px;
         gap: 20px;
@@ -571,9 +675,19 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <div class="theme-toggle-icons">
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zm11.394-5.834a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/></svg>
+          </div>
+          <div class="theme-toggle-thumb">
+          </div>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -815,6 +929,33 @@
   </footer>
 
   <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Load saved theme or respect system preference
+    function getPreferredTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    html.setAttribute('data-theme', getPreferredTheme());
+
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Respect OS-level theme changes
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        html.setAttribute('data-theme', e.matches ? 'light' : 'dark');
+      }
+    });
+
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
