@@ -450,6 +450,42 @@
     }
     .timeline-item li + li { margin-top: 6px; }
 
+    .timeline-summary {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .timeline-details {
+      display: none;
+    }
+    .timeline-details.open {
+      display: block;
+    }
+    .timeline-toggle {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .timeline-toggle:hover {
+      opacity: 0.8;
+    }
+    .timeline-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s;
+    }
+    .timeline-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
     /* ===== Education ===== */
     .education-grid {
       display: grid;
@@ -835,23 +871,28 @@
           <div class="timeline-date">Jan 2026 — Present</div>
           <h3>Mathematics Grader</h3>
           <p class="company">University of Colorado Boulder · Part-time</p>
-          <ul>
-            <li>Grading for MATH 2001: Introduction to Discrete Mathematics</li>
-          </ul>
+          <p class="timeline-summary">Grading for MATH 2001: Introduction to Discrete Mathematics.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-date">Mar 2021 — Jul 2024</div>
           <h3>Associate Consultant</h3>
           <p class="company">Eviden · Full-time</p>
-          <ul>
-            <li>Developed a generative AI model using LLMs to automate financial audit data analysis, reducing manual review time by 40% and boosting audit accuracy by 25%</li>
-            <li>Designed and optimized SQL-based data models and ETL pipelines, improving data integration efficiency by 30% and enabling structured financial reporting aligned with governance standards</li>
-            <li>Analyzed audit trails and logs to trace financial transaction history, enhancing anomaly detection accuracy by 10% and increasing overall audit efficiency by 20%</li>
-            <li>Engineered an anomaly detection pipeline using the Local Outlier Factor (LOF) algorithm in Python, achieving 90% accuracy in identifying financial outliers and reducing audit review time by 20%</li>
-            <li>Automated approval workflows, achieving 60% process automation and reducing manual workload by 15 hours per week, increasing audit team productivity</li>
-            <li>Collaborated with cross-functional teams of developers and business stakeholders to deliver scalable data solutions, ensuring project alignment with business objectives</li>
-          </ul>
+          <p class="timeline-summary">Built generative AI models, anomaly detection pipelines, and automated workflows for financial audit systems.</p>
+          <button class="timeline-toggle" onclick="this.classList.toggle('open');this.previousElementSibling.previousElementSibling;this.nextElementSibling.classList.toggle('open');this.querySelector('span').textContent=this.classList.contains('open')?'Hide Details':'Show Details'">
+            <span>Show Details</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="timeline-details">
+            <ul>
+              <li>Developed a generative AI model using LLMs to automate financial audit data analysis, reducing manual review time by 40% and boosting audit accuracy by 25%</li>
+              <li>Designed and optimized SQL-based data models and ETL pipelines, improving data integration efficiency by 30% and enabling structured financial reporting aligned with governance standards</li>
+              <li>Analyzed audit trails and logs to trace financial transaction history, enhancing anomaly detection accuracy by 10% and increasing overall audit efficiency by 20%</li>
+              <li>Engineered an anomaly detection pipeline using the Local Outlier Factor (LOF) algorithm in Python, achieving 90% accuracy in identifying financial outliers and reducing audit review time by 20%</li>
+              <li>Automated approval workflows, achieving 60% process automation and reducing manual workload by 15 hours per week, increasing audit team productivity</li>
+              <li>Collaborated with cross-functional teams of developers and business stakeholders to deliver scalable data solutions, ensuring project alignment with business objectives</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
