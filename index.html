@@ -486,6 +486,47 @@
       transform: rotate(180deg);
     }
 
+    .timeline-metrics {
+      display: flex;
+      gap: 12px;
+      margin: 14px 0;
+      flex-wrap: wrap;
+    }
+    .metric-card {
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 10px 18px;
+      text-align: center;
+      min-width: 100px;
+    }
+    .metric-value {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .timeline-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .skill-chip {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 4px 14px;
+      opacity: 0.85;
+    }
+
     /* ===== Education ===== */
     .education-grid {
       display: grid;
@@ -878,8 +919,26 @@
           <div class="timeline-date">Mar 2021 — Jul 2024</div>
           <h3>Associate Consultant</h3>
           <p class="company">Eviden · Full-time</p>
+          <div class="timeline-metrics">
+            <div class="metric-card">
+              <div class="metric-value">40%</div>
+              <div class="metric-label">Faster Reviews</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">90%</div>
+              <div class="metric-label">Detection Accuracy</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">60%</div>
+              <div class="metric-label">Process Automation</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">30%</div>
+              <div class="metric-label">Faster Integration</div>
+            </div>
+          </div>
           <p class="timeline-summary">Built generative AI models, anomaly detection pipelines, and automated workflows for financial audit systems.</p>
-          <button class="timeline-toggle" onclick="this.classList.toggle('open');this.previousElementSibling.previousElementSibling;this.nextElementSibling.classList.toggle('open');this.querySelector('span').textContent=this.classList.contains('open')?'Hide Details':'Show Details'">
+          <button class="timeline-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('span').textContent=this.classList.contains('open')?'Hide Details':'Show Details'">
             <span>Show Details</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -892,6 +951,15 @@
               <li>Automated approval workflows, achieving 60% process automation and reducing manual workload by 15 hours per week, increasing audit team productivity</li>
               <li>Collaborated with cross-functional teams of developers and business stakeholders to deliver scalable data solutions, ensuring project alignment with business objectives</li>
             </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-chip">LLMs</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">ETL Pipelines</span>
+            <span class="skill-chip">Anomaly Detection</span>
+            <span class="skill-chip">Process Automation</span>
+            <span class="skill-chip">Financial Auditing</span>
           </div>
         </div>
       </div>
