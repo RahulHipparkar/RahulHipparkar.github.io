@@ -882,11 +882,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 36px;
+      padding: 14px 40px;
       background: var(--accent);
       color: #fff;
-      border: none;
-      border-radius: 28px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
@@ -894,8 +894,13 @@
       margin-top: 8px;
     }
     .contact-form button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(var(--accent-rgb, 45,212,191), 0.3);
+      background: transparent;
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--accent-glow);
+    }
+    .contact-form button:hover svg {
+      stroke: var(--accent);
     }
     .contact-form button svg {
       width: 18px;
