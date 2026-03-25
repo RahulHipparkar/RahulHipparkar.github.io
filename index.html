@@ -772,39 +772,135 @@
     /* ===== Contact ===== */
     .contact-section { text-align: center; }
 
-    .contact-text {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      text-align: left;
+      margin-top: 8px;
+    }
+    .contact-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .contact-info > p {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 520px;
-      margin: 0 auto 36px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
     }
-
-    .contact-links {
+    .contact-detail {
       display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .contact-chip {
-      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contact-detail-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(var(--accent-rgb, 45,212,191), 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+    }
+    .contact-detail span {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .contact-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .contact-social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 28px;
-      color: var(--text);
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s;
     }
-    .contact-chip:hover {
+    .contact-social-icon:hover {
       border-color: var(--accent);
       background: var(--accent);
       color: #fff;
       transform: translateY(-3px);
     }
-    .contact-chip svg { width: 20px; height: 20px; }
+    .contact-social-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+    }
+    .contact-social-icon:hover svg {
+      color: #fff;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+    }
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .contact-form button {
+      align-self: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+    .contact-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(var(--accent-rgb, 45,212,191), 0.3);
+    }
+    .contact-form button svg {
+      width: 18px;
+      height: 18px;
+    }
 
     /* ===== Footer ===== */
     footer {
@@ -859,6 +955,7 @@
       }
       .hamburger { display: flex; }
       .projects-grid, .skills-grid, .education-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .section-title { font-size: 1.7rem; }
     }
   </style>
@@ -1308,30 +1405,48 @@
   <section id="contact">
     <div class="reveal contact-section">
       <div class="section-header">
-        <h2 class="section-title" style="margin-bottom:0">Let's Connect</h2>
+        <h2 class="section-title" style="margin-bottom:0">Get In Touch</h2>
         <div class="underline"></div>
-        <p class="subtitle">Always open to new opportunities</p>
+        <p class="subtitle">Let's collaborate</p>
       </div>
-      <p class="contact-text">
-        I'm always open to discussing data science, ML projects, or collaboration opportunities. Feel free to reach out!
-      </p>
-      <div class="contact-links">
-        <a href="https://github.com/RahulHipparkar" class="contact-chip" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/rahulhipparkar" class="contact-chip" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://www.kaggle.com/rahulhipparkar" class="contact-chip" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.281.18.046.149.034.233-.036.315L12.82 14.26l5.969 9.246c.068.118.082.209.036.352z"/></svg>
-          Kaggle
-        </a>
-        <a href="mailto:rahul.hipparkar@colorado.edu" class="contact-chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-          Email
-        </a>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out if you're looking to collaborate, have questions about my work, or just want to connect!</p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+            </div>
+            <span>rahul.hipparkar@colorado.edu</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>Boulder, Colorado, United States</span>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/rahulhipparkar" class="contact-social-icon" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            </a>
+            <a href="https://github.com/RahulHipparkar" class="contact-social-icon" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+            </a>
+            <a href="https://www.kaggle.com/rahulhipparkar" class="contact-social-icon" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.281.18.046.149.034.233-.036.315L12.82 14.26l5.969 9.246c.068.118.082.209.036.352z"/></svg>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">
+            Send Message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
       </div>
     </div>
   </section>
