@@ -198,15 +198,25 @@
       padding: 100px 32px;
     }
 
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.85rem;
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-header .underline {
+      width: 48px;
+      height: 4px;
+      background: var(--accent);
+      margin: 12px auto 16px;
+      border-radius: 2px;
+    }
+    .section-header .subtitle {
       color: var(--accent);
-      margin-bottom: 12px;
-      display: inline-block;
+      font-size: 1rem;
+      font-style: italic;
     }
 
     .section-title {
+
       font-size: 2.2rem;
       font-weight: 800;
       margin-bottom: 48px;
@@ -554,22 +564,6 @@
     .cgpa-highlight { color: var(--accent); font-weight: 700; }
 
     /* ===== Skills ===== */
-    .skills-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .skills-header .underline {
-      width: 48px;
-      height: 4px;
-      background: var(--accent);
-      margin: 12px auto 16px;
-      border-radius: 2px;
-    }
-    .skills-header .subtitle {
-      color: var(--accent);
-      font-size: 1rem;
-      font-style: italic;
-    }
 
     .skills-filters {
       display: flex;
@@ -904,8 +898,11 @@
   <!-- Experience -->
   <section id="experience">
     <div class="reveal">
-      <p class="section-label">&lt;experience&gt;</p>
-      <h2 class="section-title">Experience</h2>
+      <div class="section-header">
+        <h2 class="section-title" style="margin-bottom:0">Experience</h2>
+        <div class="underline"></div>
+        <p class="subtitle">Where I've built, broken, and learned</p>
+      </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
@@ -963,8 +960,11 @@
   <!-- Education -->
   <section id="education">
     <div class="reveal">
-      <p class="section-label">&lt;education&gt;</p>
-      <h2 class="section-title">Education</h2>
+      <div class="section-header">
+        <h2 class="section-title" style="margin-bottom:0">Education</h2>
+        <div class="underline"></div>
+        <p class="subtitle">The foundation behind the work</p>
+      </div>
       <div class="education-grid">
         <div class="edu-card">
           <h3>Master of Science — Data Science</h3>
@@ -985,7 +985,7 @@
   <!-- Skills -->
   <section id="skills">
     <div class="reveal">
-      <div class="skills-header">
+      <div class="section-header">
         <h2 class="section-title" style="margin-bottom:0">Technical Skills</h2>
         <div class="underline"></div>
         <p class="subtitle">Technologies I work with</p>
@@ -1125,8 +1125,11 @@
   <!-- Projects -->
   <section id="projects">
     <div class="reveal">
-      <p class="section-label">&lt;projects&gt;</p>
-      <h2 class="section-title">Projects</h2>
+      <div class="section-header">
+        <h2 class="section-title" style="margin-bottom:0">Projects</h2>
+        <div class="underline"></div>
+        <p class="subtitle">Ideas brought to life with code</p>
+      </div>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -1195,8 +1198,11 @@
   <!-- Contact -->
   <section id="contact">
     <div class="reveal contact-section">
-      <p class="section-label">&lt;contact&gt;</p>
-      <h2 class="section-title">Let's Connect</h2>
+      <div class="section-header">
+        <h2 class="section-title" style="margin-bottom:0">Let's Connect</h2>
+        <div class="underline"></div>
+        <p class="subtitle">Always open to new opportunities</p>
+      </div>
       <p class="contact-text">
         I'm always open to discussing data science, ML projects, or collaboration opportunities. Feel free to reach out!
       </p>
