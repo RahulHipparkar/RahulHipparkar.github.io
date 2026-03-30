@@ -280,27 +280,20 @@
       margin-bottom: 12px;
     }
 
-    .hero-subtitle {
-      font-size: 1.3rem;
+    .role-text {
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-    .hero-subtitle .role-text {
-      display: inline-block;
-      min-width: 200px;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-    .hero-subtitle .cursor {
+    .cursor {
       display: inline-block;
-      width: 2px;
-      height: 1.2em;
+      width: 3px;
+      height: 0.9em;
       background: var(--accent);
       margin-left: 2px;
-      vertical-align: text-bottom;
+      vertical-align: baseline;
       animation: blink 0.8s infinite;
     }
 
@@ -1031,8 +1024,7 @@
         </div>
       </div>
       <div class="hero-text">
-        <h1 class="fade-in fade-in-d1">Hi, I'm Rahul!</h1>
-        <p class="hero-subtitle fade-in fade-in-d2"><span class="role-text" id="roleText"></span><span class="cursor"></span></p>
+        <h1 class="fade-in fade-in-d1">Hey, I'm Rahul, a <span class="role-text" id="roleText"></span><span class="cursor"></span></h1>
         <div class="hero-bio fade-in fade-in-d3">
           <p>
             I'm currently pursuing my Master's in Data Science at University of Colorado Boulder. I enjoy tackling real-world data challenges and turning complex datasets into actionable insights.
