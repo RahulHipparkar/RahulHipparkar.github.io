@@ -748,43 +748,42 @@
       box-shadow: 0 16px 48px var(--shadow);
     }
 
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
+    .project-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
 
-    .project-icon {
-      font-size: 1.5rem;
+    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .project-tech span {
+      font-family: var(--mono);
+      font-size: 0.75rem;
       color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
     }
-
-    .project-links a {
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-    .project-links a:hover { color: var(--accent); }
-    .project-links svg { width: 22px; height: 22px; }
-
-    .project-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
 
     .project-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
       flex-grow: 1;
       margin-bottom: 18px;
+      line-height: 1.6;
     }
 
-    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; }
-    .project-tech span {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      background: var(--tag-bg);
-      padding: 3px 10px;
-      border-radius: 4px;
+    .project-links {
+      display: flex;
+      gap: 20px;
+      margin-top: auto;
     }
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .project-links a:hover { color: var(--accent); }
+    .project-links svg { width: 18px; height: 18px; }
 
     /* ===== Contact ===== */
     .contact-section { text-align: center; }
@@ -1323,16 +1322,7 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-header">
-            <span class="project-icon">&#x1F4C1;</span>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" aria-label="GitHub repository">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-              </a>
-            </div>
-          </div>
           <h3>Insurance Premium Prediction</h3>
-          <p>End-to-end ML pipeline for predicting insurance premiums using ensemble methods with hyperparameter optimization and experiment tracking.</p>
           <div class="project-tech">
             <span>LightGBM</span>
             <span>XGBoost</span>
@@ -1340,19 +1330,17 @@
             <span>Optuna</span>
             <span>MLflow</span>
           </div>
+          <p>End-to-end ML pipeline for predicting insurance premiums using ensemble methods with hyperparameter optimization and experiment tracking.</p>
+          <div class="project-links">
+            <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+              GitHub
+            </a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-header">
-            <span class="project-icon">&#x1F4C1;</span>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" aria-label="GitHub repository">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-              </a>
-            </div>
-          </div>
           <h3>SkillGraph AI — Job Matching</h3>
-          <p>LLM-powered semantic job matching system using vector embeddings, retrieval-augmented generation, and intelligent ranking algorithms.</p>
           <div class="project-tech">
             <span>LangChain</span>
             <span>RAG</span>
@@ -1360,24 +1348,29 @@
             <span>Python</span>
             <span>FAISS</span>
           </div>
+          <p>LLM-powered semantic job matching system using vector embeddings, retrieval-augmented generation, and intelligent ranking algorithms.</p>
+          <div class="project-links">
+            <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+              GitHub
+            </a>
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-header">
-            <span class="project-icon">&#x1F4C1;</span>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" aria-label="GitHub repository">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-              </a>
-            </div>
-          </div>
           <h3>NLP Text Classification</h3>
-          <p>Deep learning pipeline for multi-class text classification using transformer-based models with fine-tuning and evaluation.</p>
           <div class="project-tech">
             <span>PyTorch</span>
             <span>Transformers</span>
             <span>HuggingFace</span>
             <span>Python</span>
+          </div>
+          <p>Deep learning pipeline for multi-class text classification using transformer-based models with fine-tuning and evaluation.</p>
+          <div class="project-links">
+            <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+              GitHub
+            </a>
           </div>
         </div>
 
