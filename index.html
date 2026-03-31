@@ -839,6 +839,145 @@
     .project-links a:hover { color: var(--accent); }
     .project-links svg { width: 16px; height: 16px; }
 
+    /* ===== Project Modal ===== */
+    .project-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .project-modal-overlay.active {
+      display: flex;
+    }
+    .project-modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-back {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 10;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal-back:hover { background: var(--accent); }
+    .modal-back svg { width: 20px; height: 20px; color: #fff; }
+    .modal-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+      background: rgba(var(--accent-rgb,45,212,191),0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-body {
+      padding: 28px;
+    }
+    .modal-body h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .modal-timeline {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .modal-summary {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .modal-skills-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .modal-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .modal-skills span {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .modal-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .modal-actions .btn-github {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .modal-actions .btn-github:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+    .modal-actions .btn-website {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+    .modal-actions .btn-website:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .modal-actions svg { width: 16px; height: 16px; }
+
     /* ===== Contact ===== */
     .contact-section { text-align: center; }
 
@@ -1375,7 +1514,13 @@
       </div>
       <div class="projects-grid">
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProjectModal(this)"
+          data-title="Insurance Premium Prediction"
+          data-timeline="Jan 2024 — Mar 2024"
+          data-summary="End-to-end ML pipeline for predicting insurance premiums using ensemble methods (LightGBM, XGBoost, CatBoost) with Optuna hyperparameter optimization and MLflow experiment tracking. Built a modular preprocessing pipeline, feature engineering framework, and model evaluation dashboard to compare performance across algorithms."
+          data-skills="LightGBM,XGBoost,CatBoost,Optuna,MLflow,Python,Scikit-learn"
+          data-github="https://github.com/RahulHipparkar"
+          data-website="#">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
@@ -1393,20 +1538,16 @@
               <span>XGBoost</span>
               <span>MLflow</span>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-                GitHub
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Website
-              </a>
-            </div>
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProjectModal(this)"
+          data-title="SkillGraph AI — Job Matching"
+          data-timeline="Mar 2024 — May 2024"
+          data-summary="LLM-powered semantic job matching system using vector embeddings, retrieval-augmented generation, and intelligent ranking algorithms. Designed a pipeline that ingests job descriptions and resumes, generates semantic embeddings with FAISS indexing, and leverages LangChain for context-aware matching and candidate recommendations."
+          data-skills="LangChain,RAG,FAISS,Embeddings,Python,LLMs,Vector DBs"
+          data-github="https://github.com/RahulHipparkar"
+          data-website="#">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -1424,20 +1565,16 @@
               <span>RAG</span>
               <span>FAISS</span>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-                GitHub
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Website
-              </a>
-            </div>
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" onclick="openProjectModal(this)"
+          data-title="NLP Text Classification"
+          data-timeline="May 2024 — Jul 2024"
+          data-summary="Deep learning pipeline for multi-class text classification using transformer-based models with fine-tuning and evaluation. Implemented data preprocessing, tokenization, model training with HuggingFace Transformers, and built an evaluation framework with confusion matrices and classification reports."
+          data-skills="PyTorch,Transformers,HuggingFace,NLP,Python,Deep Learning"
+          data-github="https://github.com/RahulHipparkar"
+          data-website="#">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
@@ -1454,16 +1591,6 @@
               <span>PyTorch</span>
               <span>Transformers</span>
               <span>HuggingFace</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-                GitHub
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Website
-              </a>
             </div>
           </div>
         </div>
@@ -1563,11 +1690,79 @@
     </div>
   </section>
 
+  <!-- Project Modal -->
+  <div class="project-modal-overlay" id="projectModal">
+    <div class="project-modal">
+      <button class="modal-back" onclick="closeProjectModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </button>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-timeline" id="modalTimeline"></div>
+        <p class="modal-summary" id="modalSummary"></p>
+        <p class="modal-skills-title">Key Skills</p>
+        <div class="modal-skills" id="modalSkills"></div>
+        <div class="modal-actions" id="modalActions"></div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>Designed & Built by Rahul Hipparkar</p>
   </footer>
 
   <script>
+    // ===== Project Modal =====
+    function openProjectModal(card) {
+      const modal = document.getElementById('projectModal');
+      const thumb = card.querySelector('.project-thumb');
+
+      document.getElementById('modalTitle').textContent = card.dataset.title;
+      document.getElementById('modalTimeline').textContent = card.dataset.timeline;
+      document.getElementById('modalSummary').textContent = card.dataset.summary;
+
+      // Image
+      const imgContainer = document.getElementById('modalImage');
+      const thumbImg = thumb.querySelector('img');
+      if (thumbImg) {
+        imgContainer.innerHTML = '<img src="' + thumbImg.src + '" alt="' + card.dataset.title + '">';
+      } else {
+        imgContainer.innerHTML = thumb.innerHTML;
+      }
+
+      // Skills
+      const skillsEl = document.getElementById('modalSkills');
+      skillsEl.innerHTML = card.dataset.skills.split(',').map(s => '<span>' + s.trim() + '</span>').join('');
+
+      // Actions
+      const actionsEl = document.getElementById('modalActions');
+      let html = '';
+      if (card.dataset.github && card.dataset.github !== '#') {
+        html += '<a href="' + card.dataset.github + '" class="btn-github" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg> GitHub</a>';
+      }
+      if (card.dataset.website && card.dataset.website !== '#') {
+        html += '<a href="' + card.dataset.website + '" class="btn-website" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Website</a>';
+      }
+      actionsEl.innerHTML = html;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      document.getElementById('projectModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) closeProjectModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeProjectModal();
+    });
+
     // ===== Typing Animation =====
     (function() {
       const roles = ['Data Scientist', 'Data Analyst', 'ML Engineer', 'AI Engineer'];
