@@ -810,7 +810,7 @@
       overflow: hidden;
     }
 
-    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 8px; }
     .project-tech span {
       font-family: var(--mono);
       font-size: 0.72rem;
@@ -819,6 +819,25 @@
       padding: 3px 10px;
       border-radius: 20px;
     }
+
+    .project-links {
+      display: flex;
+      gap: 18px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .project-links a:hover { color: var(--accent); }
+    .project-links svg { width: 16px; height: 16px; }
 
     /* ===== Contact ===== */
     .contact-section { text-align: center; }
@@ -1356,7 +1375,7 @@
       </div>
       <div class="projects-grid">
 
-        <a class="project-card" href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+        <div class="project-card">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
@@ -1374,10 +1393,20 @@
               <span>XGBoost</span>
               <span>MLflow</span>
             </div>
+            <div class="project-links">
+              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+                GitHub
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Website
+              </a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="project-card" href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+        <div class="project-card">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -1395,10 +1424,20 @@
               <span>RAG</span>
               <span>FAISS</span>
             </div>
+            <div class="project-links">
+              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+                GitHub
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Website
+              </a>
+            </div>
           </div>
-        </a>
+        </div>
 
-        <a class="project-card" href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+        <div class="project-card">
           <div class="project-thumb">
             <div class="project-thumb-placeholder">
               <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
@@ -1416,8 +1455,18 @@
               <span>Transformers</span>
               <span>HuggingFace</span>
             </div>
+            <div class="project-links">
+              <a href="https://github.com/RahulHipparkar" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+                GitHub
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Website
+              </a>
+            </div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
