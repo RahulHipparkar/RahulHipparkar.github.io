@@ -958,13 +958,21 @@
       font-weight: 600;
       transition: all 0.3s;
     }
-    .modal-actions .btn-github,
+    .modal-actions .btn-github {
+      border: 1px solid var(--text);
+      color: var(--text);
+      background: var(--bg);
+    }
+    .modal-actions .btn-github:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
     .modal-actions .btn-website {
       border: 1px solid var(--accent);
       color: var(--accent);
       background: var(--bg);
     }
-    .modal-actions .btn-github:hover,
     .modal-actions .btn-website:hover {
       background: var(--accent);
       color: #fff;
