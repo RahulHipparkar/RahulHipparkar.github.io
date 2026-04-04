@@ -749,29 +749,6 @@
       box-shadow: 0 16px 48px var(--shadow);
     }
 
-    .project-thumb {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      background: rgba(var(--accent-rgb, 45,212,191), 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-    .project-card:hover .project-thumb img {
-      transform: scale(1.05);
-    }
-    .project-thumb-placeholder {
-      font-size: 3rem;
-      opacity: 0.15;
-    }
-
     .project-body {
       padding: 20px 24px 24px;
       display: flex;
@@ -887,21 +864,6 @@
     }
     .modal-back:hover { background: var(--accent); }
     .modal-back svg { width: 20px; height: 20px; color: #fff; }
-    .modal-image {
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-      border-radius: 16px 16px 0 0;
-      background: rgba(var(--accent-rgb,45,212,191),0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
     .modal-body {
       padding: 28px;
     }
@@ -1526,11 +1488,6 @@
           data-skills="LightGBM,XGBoost,CatBoost,Optuna,MLflow,Python,Scikit-learn"
           data-github="https://github.com/RahulHipparkar"
           data-website="#">
-          <div class="project-thumb">
-            <div class="project-thumb-placeholder">
-              <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-            </div>
-          </div>
           <div class="project-body">
             <div class="project-title-row">
               <h3>Insurance Premium Prediction</h3>
@@ -1557,9 +1514,6 @@
           data-skills="GPT-4o,LangChain,RAG,FAISS,Pydantic,Streamlit,Python,Embeddings,NLP"
           data-github="https://github.com/RahulHipparkar"
           data-website="#">
-          <div class="project-thumb">
-            <img src="assets/JobMatchAI.png" alt="SkillGraph AI" style="width:100%;height:100%;object-fit:cover;border-radius:14px 14px 0 0;">
-          </div>
           <div class="project-body">
             <div class="project-title-row">
               <h3>SkillGraph AI — Talent Intelligence</h3>
@@ -1587,11 +1541,6 @@
           data-skills="PyTorch,Transformers,HuggingFace,NLP,Python,Deep Learning"
           data-github="https://github.com/RahulHipparkar"
           data-website="#">
-          <div class="project-thumb">
-            <div class="project-thumb-placeholder">
-              <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor" opacity="0.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-            </div>
-          </div>
           <div class="project-body">
             <div class="project-title-row">
               <h3>NLP Text Classification</h3>
@@ -1712,7 +1661,6 @@
       <button class="modal-back" onclick="closeProjectModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
-      <div class="modal-image" id="modalImage"></div>
       <div class="modal-body">
         <h2 id="modalTitle"></h2>
         <div class="modal-timeline" id="modalTimeline"></div>
@@ -1732,20 +1680,10 @@
     // ===== Project Modal =====
     function openProjectModal(card) {
       const modal = document.getElementById('projectModal');
-      const thumb = card.querySelector('.project-thumb');
 
       document.getElementById('modalTitle').textContent = card.dataset.title;
       document.getElementById('modalTimeline').textContent = card.dataset.timeline;
       document.getElementById('modalSummary').textContent = card.dataset.summary;
-
-      // Image
-      const imgContainer = document.getElementById('modalImage');
-      const thumbImg = thumb.querySelector('img');
-      if (thumbImg) {
-        imgContainer.innerHTML = '<img src="' + thumbImg.src + '" alt="' + card.dataset.title + '">';
-      } else {
-        imgContainer.innerHTML = thumb.innerHTML;
-      }
 
       // Skills
       const skillsEl = document.getElementById('modalSkills');
