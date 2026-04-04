@@ -858,9 +858,9 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      max-width: 900px;
+      max-width: 640px;
       width: 100%;
-      max-height: 90vh;
+      max-height: 85vh;
       overflow-y: auto;
       position: relative;
       animation: modalIn 0.3s ease;
@@ -887,19 +887,11 @@
     }
     .modal-back:hover { background: var(--accent); }
     .modal-back svg { width: 20px; height: 20px; color: #fff; }
-
-    /* Hero: image left + info right */
-    .modal-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
     .modal-image {
       width: 100%;
-      height: 100%;
-      min-height: 280px;
+      height: 220px;
       overflow: hidden;
-      border-radius: 16px 0 0 0;
+      border-radius: 16px 16px 0 0;
       background: rgba(var(--accent-rgb,45,212,191),0.05);
       display: flex;
       align-items: center;
@@ -910,74 +902,33 @@
       height: 100%;
       object-fit: cover;
     }
-    .modal-hero-info {
-      padding: 32px 32px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .modal-body {
+      padding: 28px;
     }
-    .modal-category {
-      font-family: var(--mono);
-      font-size: 0.78rem;
+    .modal-body h2 {
+      font-size: 1.3rem;
       font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .modal-timeline {
+      font-family: var(--mono);
+      font-size: 0.82rem;
       color: var(--accent);
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .modal-hero-info h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-    .modal-hero-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .modal-year {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--text-muted);
       margin-bottom: 16px;
-    }
-    .modal-hero-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-    .modal-hero-skills span {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    /* Divider */
-    .modal-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 32px;
-    }
-
-    /* About section below */
-    .modal-about {
-      padding: 28px 32px 32px;
-    }
-    .modal-about h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 12px;
     }
     .modal-summary {
       color: var(--text-muted);
-      font-size: 0.93rem;
+      font-size: 0.95rem;
       line-height: 1.7;
       margin-bottom: 20px;
+    }
+    .modal-skills-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
     .modal-skills {
       display: flex;
@@ -1031,26 +982,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .modal-actions svg { width: 16px; height: 16px; }
-
-    /* Responsive: stack on mobile */
-    @media (max-width: 640px) {
-      .modal-hero {
-        grid-template-columns: 1fr;
-      }
-      .modal-image {
-        min-height: 200px;
-        border-radius: 16px 16px 0 0;
-      }
-      .modal-hero-info {
-        padding: 24px;
-      }
-      .modal-about {
-        padding: 20px 24px 24px;
-      }
-      .modal-divider {
-        margin: 0 24px;
-      }
-    }
 
     /* ===== Contact ===== */
     .contact-section { text-align: center; }
@@ -1781,22 +1712,14 @@
       <button class="modal-back" onclick="closeProjectModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
-      <div class="modal-hero">
-        <div class="modal-image" id="modalImage"></div>
-        <div class="modal-hero-info">
-          <div class="modal-category" id="modalCategory"></div>
-          <h2 id="modalTitle"></h2>
-          <p class="modal-hero-desc" id="modalHeroDesc"></p>
-          <div class="modal-year" id="modalYear"></div>
-          <div class="modal-hero-skills" id="modalHeroSkills"></div>
-          <div class="modal-actions" id="modalActions"></div>
-        </div>
-      </div>
-      <hr class="modal-divider">
-      <div class="modal-about">
-        <h3>About This Project</h3>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-timeline" id="modalTimeline"></div>
         <p class="modal-summary" id="modalSummary"></p>
+        <p class="modal-skills-title">Key Skills</p>
         <div class="modal-skills" id="modalSkills"></div>
+        <div class="modal-actions" id="modalActions"></div>
       </div>
     </div>
   </div>
@@ -1811,23 +1734,8 @@
       const modal = document.getElementById('projectModal');
       const thumb = card.querySelector('.project-thumb');
 
-      // Category from first tech tag
-      const firstTag = card.querySelector('.project-tech span');
-      document.getElementById('modalCategory').textContent = firstTag ? firstTag.textContent : '';
-
-      // Title
       document.getElementById('modalTitle').textContent = card.dataset.title;
-
-      // Short description from card paragraph
-      const cardDesc = card.querySelector('.project-body p');
-      document.getElementById('modalHeroDesc').textContent = cardDesc ? cardDesc.textContent : '';
-
-      // Year from timeline
-      const timeline = card.dataset.timeline;
-      const yearMatch = timeline.match(/\d{4}/);
-      document.getElementById('modalYear').textContent = yearMatch ? yearMatch[0] : timeline;
-
-      // Full summary in about section
+      document.getElementById('modalTimeline').textContent = card.dataset.timeline;
       document.getElementById('modalSummary').textContent = card.dataset.summary;
 
       // Image
@@ -1839,12 +1747,7 @@
         imgContainer.innerHTML = thumb.innerHTML;
       }
 
-      // Hero skills (from tech tags on card)
-      const heroSkillsEl = document.getElementById('modalHeroSkills');
-      const techTags = card.querySelectorAll('.project-tech span');
-      heroSkillsEl.innerHTML = Array.from(techTags).slice(1).map(s => '<span>' + s.textContent + '</span>').join('');
-
-      // About skills (full list from data attribute)
+      // Skills
       const skillsEl = document.getElementById('modalSkills');
       skillsEl.innerHTML = card.dataset.skills.split(',').map(s => '<span>' + s.trim() + '</span>').join('');
 
