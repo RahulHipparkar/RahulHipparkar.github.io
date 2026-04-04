@@ -1786,8 +1786,8 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const lineAlpha = isDark() ? 0.35 : 0.45;
-      const dotAlpha = isDark() ? 0.7 : 0.7;
+      const lineAlpha = isDark() ? 0.35 : 0.2;
+      const dotAlpha = isDark() ? 0.7 : 0.5;
 
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
@@ -1807,7 +1807,7 @@
             ctx.strokeStyle = isDark()
               ? `rgba(43, 188, 179, ${lineAlpha * (1 - dist / CONNECT_DIST)})`
               : `rgba(26, 158, 150, ${lineAlpha * (1 - dist / CONNECT_DIST)})`;
-            ctx.lineWidth = isDark() ? 1 : 1.5;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
         }
