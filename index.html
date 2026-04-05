@@ -638,6 +638,65 @@
       margin-bottom: 14px;
       flex: 1;
     }
+    .research-details {
+      display: none;
+      color: var(--text);
+      opacity: 0.85;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .research-details.active {
+      display: block;
+    }
+    .research-details ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .research-details ul li {
+      margin-bottom: 8px;
+    }
+    .research-toggle {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .research-toggle:hover { color: var(--accent-hover); }
+    .research-toggle svg {
+      width: 14px; height: 14px;
+      transition: transform 0.2s;
+    }
+    .research-toggle.active svg {
+      transform: rotate(180deg);
+    }
+    .research-links {
+      display: flex;
+      gap: 18px;
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .research-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .research-links a:hover { color: var(--accent); }
+    .research-links svg { width: 16px; height: 16px; }
     .research-tags {
       display: flex;
       flex-wrap: wrap;
@@ -1575,13 +1634,28 @@
       <div class="research-grid">
         <div class="research-card">
           <span class="research-status published">Published — 2019</span>
-          <h3><a href="http://doi.org/10.22214/ijraset.2020.1037" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">UID-Based Payment Interface using Iris Recognition</a></h3>
+          <h3>UID-Based Payment Interface using Iris Recognition</h3>
           <p class="research-venue">International Journal for Research in Applied Science and Engineering Technology</p>
-          <p class="research-desc">Details about this research project will be added here. This placeholder represents an ongoing research effort in data science and machine learning.</p>
+          <p class="research-desc">Proposed a biometric-based payment solution using iris recognition, enabling secure, contactless, and device-independent transactions.</p>
+          <button class="research-toggle" onclick="toggleResearchDetails(this)">Show Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="research-details">
+            <ul>
+              <li>Analyzed limitations of existing payment systems (cash, cards, e-wallets), identifying scenarios where users cannot complete transactions due to lack of access to devices or payment methods.</li>
+              <li>Proposed a biometric-based payment solution using iris recognition, enabling transactions without requiring customers to carry cash, cards, or smartphones.</li>
+              <li>Designed a conceptual system architecture where transactions are authenticated using iris data linked to Aadhaar and bank accounts, improving accessibility and security.</li>
+              <li>Studied and compared multiple iris recognition algorithms (Avila, Tisse, Li Ma, Daugman), evaluating them based on accuracy, robustness, and suitability for real-world applications.</li>
+              <li>Identified the Daugman algorithm as the most effective approach, offering high accuracy and resistance to noise for biometric authentication.</li>
+              <li>Outlined the core stages of iris recognition systems including segmentation, normalization, feature extraction, and matching, demonstrating understanding of biometric system design.</li>
+              <li>Highlighted the potential of such systems in enabling secure, contactless, and device-independent payment mechanisms for future digital ecosystems.</li>
+            </ul>
+          </div>
           <div class="research-tags">
-            <span class="research-tag">Machine Learning</span>
-            <span class="research-tag">NLP</span>
-            <span class="research-tag">Python</span>
+            <span class="research-tag">Biometrics</span>
+            <span class="research-tag">Iris Recognition</span>
+            <span class="research-tag">Payment Systems</span>
+          </div>
+          <div class="research-links">
+            <a href="http://doi.org/10.22214/ijraset.2020.1037" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View Paper</a>
           </div>
         </div>
         <div class="research-card">
@@ -1678,6 +1752,14 @@
 
   <script>
     // ===== Project Modal =====
+    // ===== Research Details Toggle =====
+    function toggleResearchDetails(btn) {
+      const details = btn.nextElementSibling;
+      details.classList.toggle('active');
+      btn.classList.toggle('active');
+      btn.firstChild.textContent = details.classList.contains('active') ? 'Hide Details ' : 'Show Details ';
+    }
+
     function openProjectModal(card) {
       const modal = document.getElementById('projectModal');
 
