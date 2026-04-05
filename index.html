@@ -1711,7 +1711,7 @@
         <div id="researchModalStatus"></div>
         <h2 id="researchModalTitle"></h2>
         <div class="modal-timeline" id="researchModalVenue"></div>
-        <div class="modal-summary" id="researchModalSummary" style="white-space:pre-line;"></div>
+        <div class="modal-summary" id="researchModalSummary"></div>
         <p class="modal-skills-title">Tags</p>
         <div class="modal-skills" id="researchModalTags"></div>
         <div class="modal-actions" id="researchModalActions"></div>
@@ -1736,7 +1736,13 @@
 
       document.getElementById('researchModalTitle').textContent = card.dataset.title;
       document.getElementById('researchModalVenue').textContent = card.dataset.venue;
-      document.getElementById('researchModalSummary').textContent = card.dataset.summary;
+      const summaryEl = document.getElementById('researchModalSummary');
+      const points = card.dataset.summary.split('\n\n').filter(s => s.trim());
+      if (points.length > 1) {
+        summaryEl.innerHTML = '<ul style="padding-left:20px;margin:0;">' + points.map(p => '<li style="margin-bottom:10px;">' + p.trim() + '</li>').join('') + '</ul>';
+      } else {
+        summaryEl.textContent = card.dataset.summary;
+      }
 
       // Tags
       const tagsEl = document.getElementById('researchModalTags');
