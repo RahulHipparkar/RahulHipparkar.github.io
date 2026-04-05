@@ -434,7 +434,7 @@
 
     .timeline-item {
       position: relative;
-      padding-left: 36px;
+      padding-left: 42px;
       padding-bottom: 48px;
       border-left: 2px solid var(--border);
     }
@@ -442,12 +442,20 @@
 
     .timeline-dot {
       position: absolute;
-      left: -8px; top: 4px;
-      width: 14px; height: 14px;
+      left: -18px; top: 0;
+      width: 36px; height: 36px;
       border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--bg);
+      background: rgba(var(--accent-rgb, 45,212,191), 0.12);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: border-color 0.4s;
+    }
+    .timeline-dot svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
     }
 
     .timeline-date {
@@ -1294,7 +1302,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
+          <div class="timeline-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
           <div class="timeline-date">Mar 2021 — Jul 2024</div>
           <h3>Associate Consultant</h3>
           <p class="company">Eviden · Full-time · Pune, India</p>
