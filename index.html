@@ -1619,6 +1619,29 @@
           </div>
         </div>
 
+        <div class="project-card" onclick="openProjectModal(this)"
+          data-title="Quorum: An AI-Powered GitHub PR Code Reviewer"
+          data-timeline="2026"
+          data-summary="Quorum is a multi-agent AI platform that automatically reviews GitHub pull requests with the depth of a senior engineer. When a developer opens a PR, Quorum springs into action: four specialized AI agents, each powered by Claude, review the code diff in parallel — one hunting for security vulnerabilities (OWASP Top 10, hardcoded secrets, injection risks), one flagging code complexity and poor naming, one enforcing style and readability, and one auditing architectural concerns like error handling and separation of duties. Their findings are merged, deduplicated, and posted straight back onto the pull request as inline comments, giving developers targeted, actionable feedback within seconds of opening a PR — no manual trigger, no context-switching. Beneath the surface, Quorum is engineered as a production-grade, distributed system rather than a single script. Incoming GitHub webhooks pass through a FastAPI gateway that verifies each request's HMAC signature, rejecting forged traffic at the edge before it consumes any resources. Verified events are deduplicated by commit SHA and pushed onto a Redis-backed Celery queue, decoupling the fast webhook response from the slower review work. A LangGraph orchestration layer then fans the diff out to the four agents and fans their results back in — a design that keeps end-to-end latency close to a single model call rather than four sequential ones. The entire platform runs on AWS EKS, is provisioned end-to-end with Terraform, and ships through a CI/CD pipeline that authenticates to AWS via OpenID Connect, so no long-lived cloud credentials are ever stored. Langfuse traces every agent call for full observability into prompts, token cost, and latency, while Prometheus and Grafana track system health. What makes Quorum more than a wrapper around an LLM is that it learns. Every time a pull request is merged, a learner service mines the review history to extract that repository's recurring issues and stores them as patterns. Those patterns are then injected back into the agents' prompts, so reviews progressively adapt to each team's specific habits and blind spots — the platform genuinely gets sharper the more it's used. The project brought together the full modern AI-engineering stack — multi-agent orchestration, event-driven microservices, infrastructure-as-code, and LLM observability — into one system designed to be reliable, cost-aware, and continuously improving."
+          data-skills="Claude,Multi-Agent Systems,LangGraph,FastAPI,Celery,Redis,AWS EKS,Terraform,CI/CD,OpenID Connect,Langfuse,Prometheus,Grafana,Python,Microservices"
+          data-github="#"
+          data-website="#">
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>Quorum: An AI-Powered GitHub PR Code Reviewer</h3>
+              <span class="project-year">2026</span>
+            </div>
+            <p>Multi-agent AI platform where four Claude-powered agents review pull requests in parallel — covering security, complexity, style, and architecture — deployed on AWS EKS with full observability.</p>
+            <div class="project-tech">
+              <span>AI / ML</span>
+              <span>Claude</span>
+              <span>LangGraph</span>
+              <span>FastAPI</span>
+              <span>AWS EKS</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
