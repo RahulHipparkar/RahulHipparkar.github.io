@@ -1264,8 +1264,59 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+          <div class="timeline-date">Jun 2026 — Present</div>
+          <h3>Data Scientist Intern</h3>
+          <p class="company">Summer Atlantic Capital</p>
+          <p class="timeline-summary">Building the KYC/KYB entity risk-scoring engine and LLM-powered compliance explanation layer for NexusSecure — from calibrated hybrid ML scoring to graph-RAG-grounded reason codes.</p>
+          <button class="timeline-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('span').textContent=this.classList.contains('open')?'Hide Details':'Show Details'">
+            <span>Show Details</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="timeline-details">
+            <ul>
+              <li>Built HybridScorer, the KYC/KYB entity risk-scoring model for NexusSecure — a rules + ML hybrid on XGBoost/scikit-learn producing calibrated risk scores, bands, and reason codes at sub-200 ms median latency — unit-tested and merged into the production codebase</li>
+              <li>Developed an LLM explanation &amp; recommendation module with LangChain and Claude Sonnet, backed by a Neo4j graph-RAG store over policy and evidence relationships, to generate grounded, natural-language reason codes for compliance decisions</li>
+              <li>Designed the core domain models and Pydantic v2 schemas (KYC/KYB, AML/sanctions, settlement, escrow, transaction, alert) underpinning the agent's scoring APIs and audit-metadata contracts</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-chip">XGBoost</span>
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">LangChain</span>
+            <span class="skill-chip">Claude Sonnet</span>
+            <span class="skill-chip">Neo4j</span>
+            <span class="skill-chip">Graph-RAG</span>
+            <span class="skill-chip">Pydantic</span>
+            <span class="skill-chip">Python</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></div>
+          <div class="timeline-date">Jan 2026 — Apr 2026</div>
+          <h3>Grader — MATH 2001: Introduction to Discrete Mathematics</h3>
+          <p class="company">University of Colorado Boulder</p>
+          <p class="timeline-summary">Graded weekly problem sets and exams for 30+ students under Professor Spencer Daugherty, ensuring accurate, consistent, and timely evaluation across the semester.</p>
+          <button class="timeline-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('span').textContent=this.classList.contains('open')?'Hide Details':'Show Details'">
+            <span>Show Details</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="timeline-details">
+            <ul>
+              <li>Graded weekly problem sets and exams for 30+ students in MATH 2001: Introduction to Discrete Mathematics under Professor Spencer Daugherty, ensuring accurate, consistent, and timely evaluation across the semester</li>
+              <li>Maintained clear communication with the instructor on grading rubrics, edge cases, and student feedback, while coordinating grading deadlines alongside graduate coursework to demonstrate strong time management and reliability</li>
+            </ul>
+          </div>
+          <div class="timeline-skills">
+            <span class="skill-chip">Discrete Mathematics</span>
+            <span class="skill-chip">Evaluation & Grading</span>
+            <span class="skill-chip">Communication</span>
+            <span class="skill-chip">Time Management</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
           <div class="timeline-date">Mar 2021 — Jul 2024</div>
-          <h3>Associate Consultant</h3>
+          <h3>Associate Consultant (Data Science)</h3>
           <p class="company">Eviden · Full-time · Pune, India</p>
           <div class="timeline-metrics">
             <div class="metric-card">
@@ -1281,8 +1332,8 @@
               <div class="metric-label">Accuracy Boost</div>
             </div>
             <div class="metric-card">
-              <div class="metric-value">60%</div>
-              <div class="metric-label">Workflow Automation</div>
+              <div class="metric-value">30%</div>
+              <div class="metric-label">Data Integration Gain</div>
             </div>
           </div>
           <p class="timeline-summary">Applied machine learning, NLP, and data engineering to build AI-driven audit analytics — from LLM-powered document analysis to anomaly detection pipelines processing financial transaction data at scale.</p>
@@ -1292,23 +1343,21 @@
           </button>
           <div class="timeline-details">
             <ul>
-              <li>Built a generative AI model using large language models (LLMs) to automate analysis of financial audit data, reducing manual review time by 40% and boosting audit accuracy by 25%</li>
-              <li>Engineered an anomaly detection pipeline using the Local Outlier Factor (LOF) algorithm in Python, achieving 90% accuracy in identifying financial outliers and reducing audit review time by 20%</li>
+              <li>Developed and deployed a Generative AI solution using large language models (LLMs) with LangChain, automating financial audit analysis and reducing manual review time by 40% while improving audit accuracy by 25%</li>
+              <li>Built scalable backend services using FastAPI with Pydantic-based schema validation, enabling reliable processing of audit data and structured integration with downstream systems</li>
               <li>Designed and optimized SQL-based data models and ETL pipelines, improving data integration efficiency by 30% and enabling structured financial reporting aligned with governance standards</li>
-              <li>Analyzed audit trails and transaction logs to uncover patterns in financial data, enhancing anomaly detection accuracy by 10% and increasing overall audit efficiency by 20%</li>
-              <li>Automated approval workflows end-to-end, achieving 60% process automation and saving 15 hours per week of manual workload across the audit team</li>
-              <li>Collaborated cross-functionally with developers and business stakeholders to deliver scalable, production-ready data solutions aligned with business objectives</li>
+              <li>Engineered an anomaly detection pipeline using Python and Local Outlier Factor (LOF), achieving approximately 90% accuracy in identifying financial anomalies and reducing audit review time by 20%</li>
             </ul>
           </div>
           <div class="timeline-skills">
             <span class="skill-chip">Python</span>
-            <span class="skill-chip">LLMs / NLP</span>
-            <span class="skill-chip">Anomaly Detection</span>
+            <span class="skill-chip">LLMs / LangChain</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">Pydantic</span>
             <span class="skill-chip">SQL</span>
             <span class="skill-chip">ETL Pipelines</span>
+            <span class="skill-chip">Anomaly Detection</span>
             <span class="skill-chip">Scikit-learn</span>
-            <span class="skill-chip">Data Modeling</span>
-            <span class="skill-chip">Process Automation</span>
           </div>
         </div>
       </div>
@@ -1396,6 +1445,10 @@
           <span class="skill-name">Scikit-learn</span>
         </div>
         <div class="skill-card" data-category="dsml">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/><path d="M16 8l4-4M20 8V4h-4" /></svg></div>
+          <span class="skill-name">XGBoost</span>
+        </div>
+        <div class="skill-card" data-category="dsml">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18"/><path d="M7 17l4-8 4 4 5-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <span class="skill-name">StatsModels</span>
         </div>
@@ -1420,6 +1473,10 @@
           <span class="skill-name">LangChain</span>
         </div>
         <div class="skill-card" data-category="dsml">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.3 10.8L16.7 6.2M7.3 13.2l9.4 4.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+          <span class="skill-name">LangGraph</span>
+        </div>
+        <div class="skill-card" data-category="dsml">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/><path d="M11 8h2M11 16h2M8 11v2M16 11v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
           <span class="skill-name">FAISS</span>
         </div>
@@ -1430,6 +1487,10 @@
         <div class="skill-card" data-category="dsml">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 2a6.5 6.5 0 000 13h.5M14.5 2a6.5 6.5 0 010 13H14M9.5 9a6.5 6.5 0 000 13h.5M14.5 9a6.5 6.5 0 010 13H14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
           <span class="skill-name">LLMs</span>
+        </div>
+        <div class="skill-card" data-category="dsml">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="4.5" r="2.2"/><circle cx="4.5" cy="17" r="2.2"/><circle cx="19.5" cy="17" r="2.2"/><path d="M10.6 6.4L6 14.9M13.4 6.4L18 14.9M6.7 17h10.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12.5" r="1.4" opacity="0.6"/></svg></div>
+          <span class="skill-name">Multi-Agent Systems</span>
         </div>
         <div class="skill-card" data-category="dsml">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M12 8v3M7.5 17.2L10 13M16.5 17.2L14 13" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
@@ -1472,6 +1533,18 @@
         <div class="skill-card" data-category="tools">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></div>
           <span class="skill-name">Docker</span>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3.2 9.1l5.7 1.9M20.8 9.1l-5.7 1.9M6.7 19l3.5-4.7M17.3 19l-3.5-4.7"/></svg></div>
+          <span class="skill-name">Kubernetes</span>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.44 0v7.575l6.561 3.79V3.787zm21.12 4.227l-6.561 3.791v7.574l6.56-3.787zM8.72 4.23v7.575l6.561 3.787V8.018zm0 8.405v7.575L15.28 24v-7.578z"/></svg></div>
+          <span class="skill-name">Terraform</span>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="6 9 9 12 6 15"/><line x1="11" y1="15" x2="16" y2="15"/></svg></div>
+          <span class="skill-name">Claude Code</span>
         </div>
         <div class="skill-card" data-category="tools">
           <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/><path d="M14 14l4 4M14 18l4-4"/></svg></div>
